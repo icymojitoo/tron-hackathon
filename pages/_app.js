@@ -1,0 +1,30 @@
+import '../styles/globals.css'
+import Head from 'next/head'
+
+import { createClient, configureChains, defaultChains, WagmiConfig } from 'wagmi';
+import { publicProvider } from 'wagmi/providers/public';
+import { SessionProvider } from 'next-auth/react';
+
+const { provider, webSocketProvider } = configureChains(defaultChains, [publicProvider()]);
+
+const client = createClient({
+  provider,
+  webSocketProvider,
+  autoConnect: true,
+});
+
+function MyApp({ Component, pageProps }) {
+  return (
+  <WagmiConfig client={client}>
+    <SessionProvider session={pageProps.session} refetchInterval={0}>
+      <Head>
+        <title>GenZ Portfolio & NFTs</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Component {...pageProps} />
+    </SessionProvider>
+  </WagmiConfig>
+  )
+}
+
+export default MyApp
