@@ -32,7 +32,7 @@ function SignIn() {
         const signature = await signMessageAsync({ message });
 
         // redirect user after success authentication to '/user' page
-        const { url } = await signIn('credentials', { message, signature, redirect: false, callbackUrl: '/webapp' });
+        const { url } = await signIn('credentials', { message, signature, redirect: false, callbackUrl: '/portfolio' });
         /**
          * instead of using signIn(..., redirect: "/user")
          * we get the url from callback and push it to the router to avoid page refreshing
@@ -74,7 +74,9 @@ function SignIn() {
                             <p className="py-6 mt-2">All of it is done on one site that is Sunrise.</p>
                             <p className="py-6 mt-2">We also provide easy view into your metamask wallet to see what assets you have available.</p>
                             <button className="btn btn-primary" onClick={() => handleAuth()}>Connect Metamask</button>
+                            <Link href="/oportfolio" className="btn btn-secondary m-4">View your Wallet assets</Link>
                             </div>
+
                         </div>
                     </div>
                 </main>

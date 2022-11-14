@@ -3,23 +3,49 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import axios from 'axios';
 import { useState } from 'react';
+import Select from 'react-select';
 import { getSession } from "next-auth/react";
 
 import Layout from '../components/layout';
+
+const chain_options = [
+  { value: 1, label: 'Ethereum' },
+  { value: 137, label: 'Matic' },
+  { value: 43114, label: 'Avalanche' },
+  { value: 56, label: 'BSC' },
+  { value: 42161, label: 'Arbitrum' },
+  { value: 250, label: 'Fantom' },
+  { value: 1284, label: 'Moonbeam' },
+  { value: 1285, label: 'Moonriver' },
+  { value: 2020, label: 'Axie' },
+  { value: 9001, label: 'Evmos' },
+  { value: 592, label: 'Astar' },
+  { value: 336, label: 'Shiden' },
+  { value: 4689, label: 'IoTeX' },
+  { value: 1666600000, label: 'Harmony' },
+  { value: 25, label: 'Cronos' },
+  { value: 1313161554, label: 'Aurora' },
+  { value: 53935, label: 'Defi Kingdoms' },
+]
 
 export default function Home({ user }) {
     // assets, quantity, price
     const [assets, setAssets] = useState([]);
     const [address, setAddress] = useState('');
+    const [chainID, setChainID] =  useState(1);
   
     const handleAddress = (e) => {
       setAddress(e.target.value);
+    }
+    
+    const handleChainID = (e) => {
+      setChainID(e.value);
     }
   
     async function getAssets() {
       setAssets([]);
       await axios
-        .get(`https://api.covalenthq.com/v1/137/address/${address}/balances_v2/`, {
+        .get(`https://api.covalenthq.com/v1/${chainID}/address/${address}/balances_v2/`, {
           auth: {
             username: process.env.NEXT_PUBLIC_COVALENT_API,
             password: '',
@@ -51,13 +77,13 @@ export default function Home({ user }) {
             <main>
                 <div className='flex justify-center mt-10'>
                     <input type="text" placeholder="Wallet Address" className="input input-bordered w-full max-w-md mx-4" onChange={handleAddress} />
+                    <Select options={chain_options} className="w-full max-w-xs mx-4" onChange={handleChainID} />
                     <button className="btn" onClick={getAssets}>Get Assets</button>
                     < br/>
                 </div>
 
                 <div>
-                    <div className="flex justify-center">
-                      <div className='classsName="flex justify-center items-center'>
+                      <div className='flex justify-center items-center'>
                         {assets.length > 0 && (
                             <table className="table w-full m-2">
                                 <thead>
@@ -80,7 +106,6 @@ export default function Home({ user }) {
                                 </tbody>
                             </table>
                         )} 
-                        </div>
                     </div> 
                 </div>
             </main>
