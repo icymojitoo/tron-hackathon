@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
   <WagmiConfig client={client}>
     <SessionProvider session={pageProps.session} refetchInterval={0}>
       <Head>
-        <title>GenZ Portfolio & NFTs</title>
+        <title>Sunrise Portfolio & NFTs</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Component {...pageProps} />
