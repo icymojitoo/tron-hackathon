@@ -20,14 +20,14 @@ export default function Layout(props) {
                                 <li><Link href="/portfolio">Portfolio</Link></li>
                             </ul>
                             </div>
-                            <Link href="/webapp" className="btn btn-ghost normal-case text-xl">GN Portfolio & NFTs</Link>
+                            <Link href="/portfolio" className="btn btn-ghost normal-case text-xl">Sunrise Portfolio & NFTs</Link>
                         </div>
                         <div className="navbar-center hidden lg:flex">
-                            <ul className="menu menu-horizontal p-0">
+                            <ul className="menu menu-horizontal p-0">                        
+                            <li><Link href="/webapp">Marketplace</Link></li>
                             <li><Link href="my-assets">My NFTs</Link></li>
                             <li><Link href="/create-item">Create</Link></li>
                             <li><Link href="/user">Creator Dashboard</Link></li>
-                            <li><Link href="/portfolio">Portfolio</Link></li>
                             </ul>
                         </div>
                         <div className="navbar-end">

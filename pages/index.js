@@ -43,15 +43,15 @@ function SignIn() {
     return (        <div id="page-container">
     <div id="content-wrap">
         <div className="navbar bg-base-100">
-            <a className="btn btn-ghost normal-case text-xl">GenZ Portfolio & NFTs</a>
+            <a className="btn btn-ghost normal-case text-xl">Sunrise Portfolio & NFTs</a>
         </div>
         <main className='mt-8'>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content text-center">
                     <div className="max-w-md">
-                    <h1 className="text-5xl font-bold">GenZ Portfolio & NFTs</h1>
-                    <p className="py-6">GenZ Portfolio and NFTs provides an easy solution for creating annd selling NFTs for generic use cases which doesnot require you to create a new collection or roam platform to platform to sell.</p>
-                    <p className="py-6 mt-2">All of it is done on one site that is GenZ.</p>
+                    <h1 className="text-5xl font-bold">Sunrise Portfolio & NFTs</h1>
+                    <p className="py-6">Sunrise Portfolio and NFTs provides an easy solution for creating annd selling NFTs for generic use cases which doesnot require you to create a new collection or roam platform to platform to sell.</p>
+                    <p className="py-6 mt-2">All of it is done on one site that is Sunrise.</p>
                     <p className="py-6 mt-2">We also provide easy view into your metamask wallet to see what assets you have available.</p>
                     <button className="btn btn-primary" onClick={() => handleAuth()}>Connect Metamask</button>
                     </div>

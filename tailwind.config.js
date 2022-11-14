@@ -13,10 +13,10 @@ module.exports = {
     themes: [
       {
         light: {
-          ...require("daisyui/src/colors/themes")["[data-theme=coffee]"],
+          ...require("daisyui/src/colors/themes")["[data-theme=wireframe]"],
         },
         dark: {
-          ...require("daisyui/src/colors/themes")["[data-theme=cmyk]"],
+          ...require("daisyui/src/colors/themes")["[data-theme=black]"],
         }
       },
     ]

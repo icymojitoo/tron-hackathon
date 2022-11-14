@@ -10,7 +10,7 @@ contract NFT is ERC721URIStorage {
     Counters.Counter private _tokenIds;
     address contractAddress;
 
-    constructor(address marketplaceAddress) ERC721("Generic NFTs", "GN") {
+    constructor(address marketplaceAddress) ERC721("SUNRISE NFTs", "SUNR") {
         contractAddress = marketplaceAddress;
     }
 

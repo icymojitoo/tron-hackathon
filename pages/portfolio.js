@@ -3,7 +3,6 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import axios from 'axios';
 import { useState } from 'react';
-import { getSession } from "next-auth/react";
 
 import Layout from '../components/layout';
 
@@ -87,22 +86,4 @@ export default function Home({ user }) {
         </Layout>
     </div>
   )
-}
-
-export async function getServerSideProps(context) {
-  const session = await getSession(context);
-
-  // redirect if not authenticated
-  if (!session) {
-      return {
-          redirect: {
-              destination: '/',
-              permanent: false,
-          },
-      };
-  }
-
-  return {
-      props: { user: session.user }
-  };
 }
